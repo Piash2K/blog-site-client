@@ -1,0 +1,22 @@
+"use client";
+
+import { useEffect } from "react";
+
+export default function AboutError({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
+}) {
+  useEffect(() => {
+    console.error("Error in About page:", error);
+  }, [error]);
+
+  return (
+    <div>
+      <h1>Something went wrong while loading the about page.</h1>
+      <button onClick={() => reset()}>Try again</button>
+    </div>
+  );
+}
